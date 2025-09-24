@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo en mi vida</title>
+  <link rel="icon" type="image/png" href="https://emoji.discadia.com/emojis/7a3a3518-1307-4efc-a251-5cb94eb3fffb.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="💜" href="_.webp" />
+  <style>
+
+html {
+  scroll-behavior: smooth;
+}
+
+    :root {
+      --main-color: #bb27c9;
+      --bg-color: #f6f0fa;
+      --text-color: #4a154b;
+      --accent-color: #7d3c98;
+      --card-bg: #f9e6ff;
+    }
+
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+
+    header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  border-bottom: 2px solid var(--main-color);
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+.menu-centrado {
+  display: flex;
+  gap: 30px;
+}
+
+.menu-centrado a {
+  text-decoration: none;
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.menu-centrado a:hover {
+  color: var(--accent-color);
+}
+
+
+.video-letra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.video-container {
+  max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 450px;
+  border-radius: 12px;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6b00a8;
+  font-style: italic;
+  text-align: center;
+}
+
+.letra {
+  max-width: 800px;
+  text-align: center;
+  white-space: pre-line;
+  padding: 20px;
+  background-color: #ffffffc0;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+
+
+
+
+    header img {
+      height: 30px;
+    }
+
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: var(--main-color);
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    h1 {
+      padding-top: 80px;
+      text-align: center;
+      font-size: 2.5em;
+      color: var(--accent-color);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8em;
+      color: var(--main-color);
+      margin-top: -10px;
+    }
+
+    .video-letra {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    iframe {
+      max-width: 100%;
+      width: 480px;
+      height: 270px;
+      border-radius: 10px;
+    }
+
+    .letra {
+      max-width: 600px;
+      white-space: pre-line;
+      padding: 15px;
+      background-color: #ffffffc0;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .galeria {
+  background-color: #f8f0fc; /* tono suave */
+  padding: 3em 1em;
+  text-align: center;
+}
+
+.galeria-header {
+  margin-bottom: 3em;
+}
+
+.galeria h2 {
+  color: #a020f0; /* violeta */
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+}
+
+.galeria p {
+  color: #4b0082;
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.galeria-fotos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5em;
+  justify-items: center;
+  padding: 1em 0;
+}
+
+@media (min-width: 768px) {
+  .galeria-fotos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.img-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 250px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0.5em;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.img-container img:hover {
+  filter: brightness(1.15);
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+    .carta {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: var(--card-bg);
+      border-left: 5px solid var(--accent-color);
+      font-size: 18px;
+      line-height: 1.8;
+      border-radius: 10px;
+    }
+
+    .final {
+      text-align: center;
+      font-style: italic;
+      margin: 50px 20px;
+      color: var(--accent-color);
+      font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .video-letra {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 5px 10px;
+        font-size: 14px;
+      }
+
+      .galeria img {
+        width: 45%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <nav class="menu-centrado">
+          <a href="#Todo en mi vida 💜">Todo en mi vida 💜</a>
+          <a href="#galeria">Galería</a>
+          <a href="#carta">Carta</a>
+        </nav>
+    </header>
+
+  <section id="Todo en mi vida 💜">
+    <h1>Todo en mi vida 💜</h1>
+    <h2>Seamos los reyes de corazones 💜</h2>
+
+    <div class="video-letra">
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube.com/embed/scuycgjA7o0?si=v5zFTbQEv6Fp-54m" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+          <p class="caption">🎵 <em>“Todo en mi vida”</em> – Saurom</p>
+        </div>
+      
+        <div class="letra">
+          <h2>Todo en mi vida</h2>
+          Que lejos quedan los inicios de esta historia
+          Que importa ya cuando subimos a esta noria
+          Si el tiempo sabe lo que tú y yo hemos vivido
+          Sabe quién somos, y lo que fuimos
+          
+          Se dice que vivir la vida hace un camino
+          Porque has tardado tanto tú en llegar al mío
+          Ahora me duele todo lo que me he perdido
+          Quiero vivirlo, todo contigo
+          
+          Tú eres el faro que me busca en lejanía
+          Ese viaje que me inunda de sabores
+          Y como el aire que respira entre las flores
+          Tú lo eres todo, todo en mi vida
+          
+          Y aunque ahora todo nos parezca tan bonito
+          Mañana el cuerpo lo tendremos dolorido
+          El alma puesta por bandera hecha jirones
+          En un navío a rumbo perdido
+          
+          Pero del miedo habremos roto las barreras
+          Y si hizo muros construiremos una puerta
+          Una muy grande que se quede siempre abierta
+          Pa' vernos donde y cuando tú quieras
+          
+          Vente conmigo y lloverán las bendiciones
+          Seamos los reyes de corazones
+          
+          Tú eres el faro que me busca en lejanía
+          Ese viaje que me inunda de sabores
+          Y como el aire que respira entre las flores
+          
+          Tú lo eres todo, todo en mi vida
+          
+          Con esa luz que emana de las cosas buenas
+          Déjame ser tus noches
+          De Luna llena
+      </div>
+      
+      
+      
+ 
+    
+    <section id="galeria" class="galeria">
+        <div class="galeria-header">
+          <h2>Galería de Recuerdos</h2>
+          <p>Estos momentos guardan historias que no se olvidan. Gracias por compartirlos conmigo.</p>
+        </div>
+      
+        <div class="galeria-fotos">
+
+        <div class="img-container">
+          <img src="1.webp" alt="Imagen 1">
+        </div>
+        <div class="img-container">
+          <img src="2.png" alt="Imagen 2">
+        </div>
+        <div class="img-container">
+          <img src="3.webp" alt="Imagen 3">
+        </div>
+        <div class="img-container">
+          <img src="4.webp" alt="Imagen 4">
+        </div>
+        <div class="img-container">
+          <img src="5.webp" alt="Imagen 5">
+        </div>
+        <div class="img-container">
+          <img src="6.webp" alt="Imagen 6">
+        </div>
+        <div class="img-container">
+          <img src="7.webp" alt="Imagen 7">
+        </div>
+        <div class="img-container">
+          <img src="8.webp" alt="Imagen 8">
+        </div>
+        <div class="img-container">
+          <img src="9.webp" alt="Imagen 9">
+        </div>
+        <div class="img-container">
+          <img src="10.webp" alt="Imagen 10">
+        </div>
+        <div class="img-container">
+          <img src="11.webp" alt="Imagen 11">
+        </div>
+        <div class="img-container">
+          <img src="12.webp" alt="Imagen 12">
+        </div>
+        <div class="img-container">
+          <img src="13.webp" alt="Imagen 13">
+        </div>
+        <div class="img-container">
+          <img src="14.webp" alt="Imagen 14">
+        </div>
+        <div class="img-container">
+          <img src="15.webp" alt="Imagen 15">
+        </div>
+        <div class="img-container">
+          <img src="16.webp" alt="Imagen 16">
+        </div>
+        <div class="img-container">
+          <img src="17.webp" alt="Imagen 17">
+        </div>
+        <div class="img-container">
+          <img src="18.webp" alt="Imagen 18">
+        </div>
+        <div class="img-container">
+          <img src="19.webp" alt="Imagen 19">
+        </div>
+        <div class="img-container">
+          <img src="20.webp" alt="Imagen 20">
+        </div>
+        <div class="img-container">
+          <img src="21.webp" alt="Imagen 21">
+        </div>
+      
+        <!-- 🔧 AQUÍ ESTABA EL ERROR -->
+        <div class="img-container">
+          <img src="22.webp" alt="Imagen 22">
+        </div>
+      
+        <div class="img-container">
+          <img src="23.webp" alt="Imagen 23">
+        </div>
+        <!-- 🔧 HASTA AQUÍ -->
+      
+        <div class="img-container">
+          <img src="24.webp" alt="Imagen 24">
+        </div>
+
+        <div class="img-container">
+          <img src="25.webp" alt="Imagen 25">
+        </div>
+
+        
+
+        <div>
+      
+    </section>
+      
+
+  <section id="carta" class="carta">
+    <!-- Aquí pego la carta final cuando me la confirmes -->
+    <h2>Una Simple Carta</h2>
+    
+    <h2>"De todo lo vivido y por vivir"</h2>
+    <p>
+
+       No sé en qué momento empezaste a habitar en mis pensamientos,
+pero desde entonces hay un rincón de mí que siempre te guarda.</p>
+</p>
+No eres un recuerdo, porque sigues aquí.
+Tampoco eres un sueño, porque cada día me demuestras
+que eres más real y más hermosa de lo que jamás habría imaginado.</p>
+
+</p>Me descubrí viéndote como quien mira el cielo:
+con asombro, con calma, con la certeza de que aunque lo contemple mil veces,
+siempre habrá algo nuevo que me deslumbre.</p>
+</p>
+No necesito que entiendas todo lo que siento.
+Me basta con que sepas que en ti encontré un brillo distinto,
+ese que no se apaga ni con la distancia ni con el silencio.</p>
+
+Y si alguna vez dudas de lo que vales,
+acuérdate de esto:
+para mí eres constelación,
+y yo solo tuve la fortuna de cruzarme con tu luz.
+        </p>
+  </section>
+
+  <div class="final">
+    Mis memorias quedan contigo. Mi rincón , Tu abrigo 🌌💜
+  </div>
+
+</body>
+</html>
